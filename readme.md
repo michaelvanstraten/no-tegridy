@@ -1,4 +1,4 @@
-![Image of Randy Marsh](no-tegridy.png)
+![Image of Randy Marsh](no-tegridy.webp)
 
 # no-tegridy
 
