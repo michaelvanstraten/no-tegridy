@@ -1,8 +1,8 @@
-import json
-from no_tegridy.decrypt import decrypt_res
-from no_tegridy.injector import Injector
-from no_tegridy.archive import generate_phar
+from notegridy.decrypt import decrypt_res
+from notegridy.injector import Injector
+from notegridy.archive import generate_phar
 
+import json
 import click
 import requests
 from os import path, unlink

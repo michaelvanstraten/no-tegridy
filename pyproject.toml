@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "no-tegridy"
+version = "0.0.1"
+authors = [{ name = "Michael van Straten", email = "michael@vanstraten.de" }]
+description = "It's a small red team script for injecting login interception code into existing WordPress plugins."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["requests", "pynacl", "click", "updatable-zipfile"]
+
+[project.scripts]
+no-tegridy = "notegridy.cli:cli"

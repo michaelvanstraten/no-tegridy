@@ -1,4 +1,4 @@
-from .updatable_zip import UpdatableZipFile
+from updatable_zipfile import UpdatableZipFile
 
 from os import path
 from os.path import basename, dirname
