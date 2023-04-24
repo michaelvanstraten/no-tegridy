@@ -7,9 +7,12 @@ name = "no-tegridy"
 version = "0.0.1"
 authors = [{ name = "Michael van Straten", email = "michael@vanstraten.de" }]
 description = "It's a small red team script for injecting login interception code into existing WordPress plugins."
-readme = "README.md"
+readme = "readme.md"
 requires-python = ">=3.7"
-dependencies = ["requests", "pynacl", "click", "updatable-zipfile"]
+dependencies = ["requests", "pynacl", "click", "updateable-zip-file"]
 
 [project.scripts]
 no-tegridy = "notegridy.cli:cli"
+
+[project.urls]
+repository = "https://github.com/michaelvanstraten/no-tegridy"

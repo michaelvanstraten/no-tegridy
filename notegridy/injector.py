@@ -1,13 +1,15 @@
-from updatable_zipfile import UpdatableZipFile
+# from updatable_zipfile import UpdatableZipFile
 
 from os import path
 from os.path import basename, dirname
 from shutil import copyfile
 from typing import List, Optional
 
+from updateablezipfile import UpdateableZipFile
+
 
 class Injector:
-    plugin: UpdatableZipFile
+    plugin: UpdateableZipFile
     plugin_name: str
     plugin_root: str
 
@@ -26,7 +28,7 @@ class Injector:
         copyfile(original_plugin, final_plugin_path)
 
         # initialize the Updatable zip file with the copied plugin
-        self.plugin = UpdatableZipFile(final_plugin_path, "a")
+        self.plugin = UpdateableZipFile(final_plugin_path, "a")
 
         # set the plugin name, this is later used to figure out the init file
         self.plugin_name = original_plugin_name.removesuffix(".zip")

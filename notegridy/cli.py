@@ -1,6 +1,6 @@
 from notegridy.decrypt import decrypt_res
 from notegridy.injector import Injector
-from notegridy.archive import generate_phar
+from notegridy.generate import generate_phar
 
 import json
 import click

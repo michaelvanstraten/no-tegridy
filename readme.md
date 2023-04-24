@@ -6,12 +6,25 @@
 
 ## Installation
 
+To install the script just run:
+
+```bash
+pip install no-tegridy
+```
+
 ## Command overview
 
-`inject`
+To inject the login interception code into a plugin run the `inject` command.
+If you would like to have and overview of the available options run:
 
-`to-tegridy inject --help`
+```bash
+no-tegridy inject --help
+```
 
-`fetch`
+In order to fetch logged data from a WordPress instance,
+with the respectively installed plugin, run the `fetch` command.
+If you would like to have and overview of the available options run:
 
-`to-tegridy fetch --help`
+```bash
+no-tegridy fetch --help
+```
